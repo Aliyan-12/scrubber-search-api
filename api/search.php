@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (empty($phone) || empty($campaign_id)) {
             $response['success'] = false;
-            $response['message'] = 'Phone number and campaign are required';
+            $response['message'] = 'Phone and campaign are required';
             echo json_encode($response);
             exit;
         }

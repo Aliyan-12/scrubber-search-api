@@ -21,7 +21,7 @@ function searchGoogleSheet($phone, $campaign_id) {
     $client = new \Google_Client();
     $client->setApplicationName('Scrubber PHP Search API');
     $client->setScopes([\Google_Service_Sheets::SPREADSHEETS]);
-    $client->setAuthConfig('../credentials.json');
+    $client->setAuthConfig('../config/credentials.json');
 
     // Google Sheets API configuration
     $service = new \Google_Service_Sheets($client);

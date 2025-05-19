@@ -1,6 +1,13 @@
 # Prevent directory listing
 Options -Indexes
 
+# Block access to base route
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^$ - [F,L]
+    RewriteRule ^index\.php$ - [F,L]
+</IfModule>
+
 # Protect sensitive files
 <FilesMatch "^(credentials\.json|\.env|\.gitignore|composer\.json|composer\.lock)$">
     Order Allow,Deny
@@ -15,7 +22,6 @@ Options -Indexes
 
 # Block access to config directory
 <IfModule mod_rewrite.c>
-    RewriteEngine On
     RewriteRule ^config/ - [F,L]
     RewriteRule ^vendor/ - [F,L]
 </IfModule>
